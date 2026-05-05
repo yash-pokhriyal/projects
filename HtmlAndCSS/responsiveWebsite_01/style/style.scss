@@ -1,0 +1,158 @@
+// Boiler plate of css
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: #0e0e0e;
+}
+
+html{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: wheat;
+}
+
+.view-1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem;
+
+
+    img{
+    width: 80%;
+    object-fit: cover;
+    } 
+
+
+    h1{
+        font-size: 3.5rem;
+        font-weight: 100;
+        text-align: center;
+    }
+
+    p{
+        text-align: center;
+        font-weight: 100;
+        line-height: 1.6;
+        font-size: 1.2rem;
+        margin: 0.9rem 0 ;
+        opacity: 0.6;
+        br{
+            display: none;
+        }
+    }
+}
+
+.view-2{
+    width: 100%;
+    padding: 4rem 3rem;
+    display: flex;
+    justify-content: center;
+
+    .marquee{
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+
+
+     
+        &::before{
+            content: '';
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-image: linear-gradient(to left, #0e0e0e, transparent);
+            z-index: 2; /* Sit on top of text */
+            pointer-events: none;
+            // pointer-events: none; ka simple matlab ye hai ki: "Is element ko ignore karo, jaise ki ye wahan hai hi nahi."
+            // Jab bhi aap koi overlay (jaise gradient, design element, ya decoration) kisi clickable content ke upar rakhte hain, to hamesha pointer-events: none; ka use karein taaki user experience kharab na ho.
+        }
+
+        &::after{
+            content: '';
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right, #0e0e0e, transparent);
+            z-index: 2; /* Sit on top of text */
+            pointer-events: none;
+        }
+      
+
+        .text{
+            display: flex;
+            padding: 0 1.5rem;
+            gap: 3rem;
+            animation: marquee 10s linear infinite both;
+
+            p{
+                font-size: 2rem;
+                font-weight: 300;
+
+            }
+        }
+    }
+}
+
+@keyframes marquee{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+
+// Making website responsive for desktop
+@media (min-width:1020px){
+
+    .view-1{
+
+        html{
+            // relative to window width
+            // ab screen size ke relative font size chlega | fluid typography
+            // par vw me dikkat aegi jab wide screen jyada badi wala screen hoga to font size kaafi bada aega |
+            // clamp(min var max) | solution
+            font-size:clamp(10px,1vw,20px);
+        }
+
+        img{
+            width: 28%;
+
+        }
+
+        h1{
+            font-size: 8.5rem;
+        }
+
+        p{
+            font-size: 1.5rem;
+
+            br{
+                display: block;
+            }
+        }
+    }
+
+    .view-2{
+        .marquee{
+            width: 50%;
+        }
+    }
+
+   
+
+    
+}
