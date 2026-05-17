@@ -1,0 +1,20 @@
+Context api chotte level pe thik hai but bade level pe ni 
+iska use kar skte authentication app ke liye theme toggle ke liye
+
+badaa app ke liye context api use ni karna chahiye we use redux
+
+hum use karte redux toolkit
+redux core library hai 
+redux toolkit help krega isko better likhne mai
+99% hi redux toolkit hota hi 
+
+
+Redux terminology 
+
+1. redux store : jahan pe sara ka saara samaan rkhenge saara state manage krenge -->saari functionality ko yhan rkhna 
+2. reducers: ye aapke function hote hain . Increse by 1 and decrease by 1 and so on ....
+3. slice : maanein tukda : reducer inke andar aate hain | saari functionality state manage yhan bnaya jaega .
+4. useSelector : iski madad se select krte hain 
+5. dispatch : iski help se bhejenge 
+selector se select krenge and dispatch se bol skte use krenge
+
